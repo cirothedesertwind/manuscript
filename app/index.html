@@ -1,64 +1,96 @@
 <!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <title>manuscript</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>centurion</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-    
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+        <link rel="stylesheet" href="/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css"/>
 
-    
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li><a href="https://html5boilerplate.com/">HTML5 Boilerplate</a></li>
-        <li><a href="http://libsass.org/">Sass</a></li>
-        <li><a href="http://modernizr.com/">Modernizr</a></li>
-      </ul>
-    </div>
-    
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    
+        <header>Header</header>
 
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
+        <div data-ms-grid>
+            <div data-ms-grid-cc>
+                <header data-ms-grid-cc="u1">Brave New World</header>
+                <div data-ms-grid-cc="u1">
+                    <div data-ms-grid>
+                        <div data-ms-grid-cc>
+                            <header data-ms-grid-cc="u1">Subdivision</header>
+                            <p data-ms-grid-cc="u2">A</p>
+                            <p data-ms-grid-cc="u4">A</p>
+                            <p data-ms-grid-cc="u4">A</p>
+                            <p data-ms-grid-cc="u6">B</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="border:4px solid #FFF; background: #AAA;" id="resizable" class="ui-widget-content"><image src="https://placekitten.com/g/250/350"></img></p>
+                <p data-ms-grid-cc="u4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p data-ms-grid-cc="u4">A</p>
+                <p data-ms-grid-cc="u6">B</p>
+            </div>
+        </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-  </body>
+        <footer>Footer</footer>
+
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/modernizr/modernizr.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+        <script>
+  $(function() {
+    $( "#resizable" ).resizable({
+      autoHide: true,
+        start: function(event, ui){
+            sibTotalWidth = ui.originalSize.width + ui.originalElement.next().outerWidth();
+        },
+        stop: function(event, ui){
+            var cellPercentWidth = Math.min(Math.max(Math.round(ui.originalElement.outerWidth() / ui.originalElement.parent().width() * 6), 0), 6) / 6 * 100;
+            ui.originalElement.css('width', cellPercentWidth + '%');
+
+            console.log(7 - Math.min(Math.max(Math.round(ui.originalElement.width() / ui.originalElement.parent().width() * 6), 1), 6));
+        },
+    });
+  });
+  </script>
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                                                                    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+                                   e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+                                   e.src='https://www.google-analytics.com/analytics.js';
+                                   r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
 </html>
