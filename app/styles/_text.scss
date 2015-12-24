@@ -1,0 +1,10 @@
+$ms-font-family: Merriweather, serif;
+$ms-headings-font-family: Lato, sans-serif;
+
+html {
+  font-family: $ms-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $ms-headings-font-family;
+}
