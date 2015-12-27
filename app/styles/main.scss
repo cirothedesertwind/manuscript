@@ -1,3 +1,9 @@
 // bower:scss
 // endbower
 
+//some debug code
+@for $i from 1 through 6 /*$max-columns*/ {
+    [data-ms-grid-cc~="u#{$i}"] {
+        background: #CCC;
+    }
+}
